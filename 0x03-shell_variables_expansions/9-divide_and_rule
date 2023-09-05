@@ -1,2 +1,2 @@
 #!/bin/bash
-ecgo $(($POWER / $DIVIDE))
+echo $(($POWER / $DIVIDE))
