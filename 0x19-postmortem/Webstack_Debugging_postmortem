@@ -1,0 +1,32 @@
+Postmortem: Web Application Downtime on May 11, 2024
+Issue Summary
+Duration: 1 hour 30 minutes (13:00 - 14:30 EAT)
+Impact: The web application was unavailable for users, resulting in a 100% downtime. Users were unable to access the service and encountered error messages.
+Root Cause: A misconfiguration in the load balancer caused the outage.
+Timeline
+13:00 EAT: The issue was detected by our monitoring system, which alerted the on-call engineer.
+13:05 EAT: The on-call engineer investigated the issue and noticed that the load balancer was not distributing traffic to the application servers.
+13:10 EAT: The engineer assumed that the issue was related to the application servers and began investigating their health and logs.
+13:20 EAT: The investigation into the application servers proved to be a misleading path, as they were all functioning correctly.
+13:25 EAT: The incident was escalated to the senior engineering team for further investigation.
+13:35 EAT: The senior engineering team discovered the misconfiguration in the load balancer and began working on a fix.
+14:30 EAT: The issue was resolved, and the web application was restored to full functionality.
+Root Cause and Resolution
+The root cause of the outage was a misconfiguration in the load balancer. A recent update to the load balancer configuration had introduced an error that caused it to stop distributing traffic to the application servers.
+
+The issue was resolved by rolling back the load balancer configuration to a previous version that was known to be working correctly. The senior engineering team then worked to identify the specific configuration change that had caused the issue and implemented a fix to prevent it from happening again.
+
+Corrective and Preventative Measures
+Improve Configuration Management: Implement a more robust configuration management system to prevent misconfigurations from being introduced into the load balancer.
+Enhance Monitoring: Add additional monitoring to the load balancer to detect issues more quickly and alert the engineering team.
+Implement Automated Testing: Implement automated testing for load balancer configurations to catch issues before they impact users.
+Update Documentation: Update the load balancer documentation to include information about the configuration change that caused the outage and how to prevent it from happening again.
+Conduct a Postmortem Review: Conduct a postmortem review with the engineering team to discuss what went wrong and how to prevent similar issues from happening in the future.
+Tasks
+Patch load balancer configuration management system
+Add monitoring to load balancer
+Implement automated testing for load balancer configurations
+Update load balancer documentation
+Conduct a postmortem review with the engineering team
+Conclusion
+This outage was caused by a misconfiguration in the load balancer, which resulted in a 100% downtime for users. The issue was resolved by rolling back the load balancer configuration and implementing a fix to prevent the issue from happening again. We have identified several corrective and preventative measures to improve our configuration management, monitoring, and testing processes to prevent similar issues from happening in the future
